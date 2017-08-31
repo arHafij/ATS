@@ -1,0 +1,141 @@
+﻿@using System.Web.UI.WebControls
+@model AssetTrackingSystem.ViewModels.PurchasedEntryCreateVM
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_MyThemeLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h4>Purchased Entry</h4>
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="col-md-4">
+                            @*Purchase Date*@
+                            <div class="form-group">
+                                @Html.LabelFor(vm => vm.PurchasedDate, new { @class = "control-label col-md-5" })
+                                <di.v class="col-md-7">
+                                    @Html.EditorFor(vm => vm.PurchasedDate, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(vm => vm.PurchasedDate, "", new { @class = "text-danger" })
+                                </di.v>
+                            </div>
+
+                            @*Price*@
+                            <div class="form-group">
+                                @Html.LabelFor(vm => vm.Price, new { @class = "control-label col-md-5" })
+                                <div class="col-md-7">
+                                    @Html.EditorFor(vm => vm.Price, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(vm => vm.Price, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            @*Quantity*@
+                            <div class="form-group">
+                                @Html.LabelFor(vm => vm.Quantity, new { @class = "control-label col-md-5" })
+                                <div class="col-md-7">
+                                    @Html.EditorFor(vm => vm.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(vm => vm.Quantity, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            @*Gen Category*@
+                            <div class="form-group">
+                                @Html.LabelFor(vm => vm.GenCategoryLookUpList, "Gen Category", new { @class = "control-label col-md-5" })
+                                <div class="col-md-7">
+                                    @Html.DropDownListFor(vm => vm.GenCategory.GenCategoryId, Model.GenCategoryLookUpList, "Select..", new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            @*Category*@
+                            <div class="form-group">
+                                @Html.LabelFor(vm => vm.CategoryLookUpList, "Category", new { @class = "control-label col-md-5" })
+                                <div class="col-md-7">
+                                    @Html.DropDownListFor(vm => vm.Category.CategoryId, Model.CategoryLookUpList, "Select..", new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            @*Sub Category*@
+                            <div class="form-group">
+                                @Html.LabelFor(vm => vm.SubCategoryLookUpList, "Sub Category", new { @class = "control-label col-md-5" })
+                                <div class="col-md-7">
+                                    @Html.DropDownListFor(vm => vm.SubCategory.Id, Model.SubCategoryLookUpList, "Select..", new { @class = "form-control" })
+                                </div>
+                            </div>
+                            @*Manufacturer*@
+                            <div class="form-group">
+                                @Html.LabelFor(vm => vm.Manufacturer.ManufacturerId,"Manufacturer",new { @class = "control-label col-md-5" })
+                                <div class="col-md-7">
+                                    @Html.DropDownListFor(vm => vm.Manufacturer.ManufacturerId,Model.ManufacturerLookUpList, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            @*Model*@
+                            <div class="form-group">
+                                @Html.LabelFor(vm => vm.ModelLookUpList, "Model", new { @class = "control-label col-md-5" })
+                                <div class="col-md-7">
+                                    @Html.DropDownListFor(vm => vm.ModelId, Model.ModelLookUpList, "Select..", new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            @*Vendor Name*@
+                            <div class="form-group">
+                                @Html.LabelFor(vm => vm.VendorName, new { @class = "control-label col-md-5" })
+                                <div class="col-md-7">
+                                    @Html.EditorFor(vm => vm.VendorName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(vm => vm.VendorName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            @*Vendor Address*@
+                            <div class="form-group">
+                                @Html.LabelFor(vm => vm.VendorAddress, new { @class = "control-label col-md-5" })
+                                <div class="col-md-7">
+                                    @Html.TextAreaFor(vm => vm.VendorAddress, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(vm => vm.VendorAddress, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            @*Warranty*@
+                            <div class="form-group">
+                                @Html.LabelFor(vm => vm.WarrantyPeriod,"Warranty Period", new { @class = "control-label col-md-5" })
+                                <div class="col-md-7">
+                                    @Html.EditorFor(vm => vm.WarrantyPeriod, new { htmlAttributes = new { @class = "form-control",title="Enter month" } })
+                                    @Html.ValidationMessageFor(vm => vm.WarrantyPeriod, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            @*Submit Button*@
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Add" class="btn btn-primary pull-right" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <h4 style="border-bottom: 1px solid #394a59; padding-bottom: 10px; margin-bottom: 20px;">
+            Purchased Asset
+        </h4>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/Scripts/app/purchased_entry/drop-down.js"></script>
+}
+

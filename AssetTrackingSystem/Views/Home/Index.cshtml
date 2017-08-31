@@ -1,161 +1,17 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
-<div class="col-md-9">
-    
-    <div class="card card-nav-tabs">
-
-        <div class="card-header" data-background-color="orange">
-            <div class="nav-tabs-navigation">
-                <div class="nav-tabs-wrapper">
-                    <ul class="nav nav-tabs" data-tabs="tabs">
-                        <li>Organization</li>
-                    </ul>
-                </div>
+<!--Breadcrumb-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <ol class="breadcrumb">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                </ol>
             </div>
         </div>
+    </div>
+</div>
 
-        <div class="card-content">
-            <div class="tab-content">
-                <!-- Organization -->
-                <div class="tab-pane active">
-                    <form>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Name
-                                        <span style="color: red;">*</span>
-                                    </label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Short Name
-                                        <span style="color: red;">*</span>
-                                    </label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Location</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Description</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn-warning pull-right">save</button>
-                        <div class="clearfix"></div>
-
-                    </form>
-                </div>
-
-                @*<!-- Branch -->
-                <div class="tab-pane" id="branch">
-                    <form>		            		                                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Name
-                                        <span style="color:red; ">*</span>
-                                    </label>
-                                    <input type="text" class="form-control" >
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Short Name
-                                        <span style="color:red; ">*</span>
-                                    </label>
-                                    <input type="text" class="form-control" >
-                                </div>
-                            </div>
-                        </div>
-                        <!-- organization -->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <select name="" id="" class="form-control">
-                                    <option value="organization" disabled>Organization</option>
-                                    <option value="">Default organization</option>
-                                    <option value="">Demo1</option>
-                                    <option value="">Demo2</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn-warning pull-right">save</button>
-                        <div class="clearfix"></div>
-
-                    </form>
-                </div>*@
-                <!-- Location -->
-                @*<div class="tab-pane" id="location">
-                    <form>		            		                                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Name
-                                        <span style="color:red; ">*</span>
-                                    </label>
-                                    <input type="text" class="form-control" >
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group label-floating">
-                                    <label class="control-label">Short Name
-                                        <span style="color:red; ">*</span>
-                                    </label>
-                                    <input type="text" class="form-control" >
-                                </div>
-                            </div>
-                        </div>
-                        <!-- organization select -->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <select name="" id="" class="form-control">
-                                    <option value="organization" disabled>Organization</option>
-                                    <option value="">Default organization</option>
-                                    <option value="">Demo1</option>
-                                    <option value="">Demo2</option>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- Branch select-->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <select name="" id="" class="form-control">
-                                    <option value="organization" disabled>Branch</option>
-                                    <option value="">Default Branch</option>
-                                    <option value="">Demo1</option>
-                                    <option value="">Demo2</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn-warning pull-right">save</button>
-                        <div class="clearfix"></div>
-
-                    </form>
-                </div>*@
-            </div><!--./tab-content-->
-        </div><!--./card-content-->
-    </div><!--./card-->
-</div><!--./col-md-9-->
-
-<div class="col-md-3">
-	                    	
-</div><!--./col-md-3-->
+<h1>Home page</h1>

@@ -3,36 +3,82 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>ATS</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <style>
+        /*Base*/
+        *{
+            margin:0;
+            padding:0;
+        }
+
+        /*Layout*/
+        #header {
+            margin-bottom: 50px;
+            display:block;
+        }
+
+        #sidebar {
+            min-height: 500px;
+            border-right: 2px solid whitesmoke;
+        }
+        /*Module*/
+        .navbar-fixed-top::after {
+            height: 5px;
+            content: '';
+            background: #2196f3;
+            width: 100%;
+        }
+
+        .sidebar-menu li a {
+            color: #666;
+        }
+        .sidebar-menu li a:hover,.sidebar-menu li a:focus {
+            color: #2196f3;
+        }
+    </style>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <div id="header">
+        <nav class="main-nav">
+            <div class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        @Html.ActionLink("ATS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+        </nav>
+    </div>
+
+    <div class="container-fluid">
+        @*sidebar*@
+        <div class="col-md-2">
+            <div id="sidebar">
+                <ul class="nav nav-pills nav-stacked sidebar-menu">
+                    <li><a href="#">Organization</a></li>
+                    <li><a href="#">Branch</a></li>
+                    <li><a href="#">Location</a></li>
                 </ul>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+        @*content*@
+        <div class="col-md-10">
+            @RenderBody()
+        </div>
     </div>
 
     @Scripts.Render("~/bundles/jquery")

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ATS.Models.Model>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyThemeLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Manufacturer.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubCategory.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Manufacturer.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubCategory.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ModelId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ModelId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ModelId })
+        </td>
+    </tr>
+}
+
+</table>
